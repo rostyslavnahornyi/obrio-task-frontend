@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tech task | Frontend at OBRIO
 
-## Getting Started
+## How to start dev server.
 
-First, run the development server:
+1. Clone repository
+2. `yarn` OR `npm i`
+3. `yarn dev`
+4. Open localhost:3000
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Scripts
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+An explanation of the `package.json` scripts.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Command      | Description                                                       |
+| ------------ | ----------------------------------------------------------------- |
+| `dev`        | Runs the development server using Next.js                         |
+| `build`      | Builds the Next.js application for production                     |
+| `start`      | Starts the production server for the Next.js application          |
+| `lint`       | Lints the codebase using Next.js's linting tool                   |
+| `format`     | Checks code formatting using Prettier                             |
+| `format:fix` | Fixes code formatting issues using Prettier                       |
+| `lint:fix`   | Fixes linting issues in the codebase using Next.js's linting tool |
+| `lint:types` | Checks TypeScript types without emitting any files                |
+| `prepare`    | Installs Husky, a tool for setting up Git hooks                   |
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Technologies
 
-## Learn More
+| Tech                                          | Description                               |
+| --------------------------------------------- | ----------------------------------------- |
+| [NextJS](https://nextjs.org/)                 | The React Framework for the Web           |
+| [TypeScript](https://www.typescriptlang.org/) | Static type-checking programming language |
+| [Zustand](https://zustand-demo.pmnd.rs/)      | State management in React                 |
+| [React](https://reactjs.org/)                 | Front end user interface                  |
+|                                               |
 
-To learn more about Next.js, take a look at the following resources:
+## Styleguide
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Coding conventions are enforced by [ESLint](.eslintrc.js) and [Prettier](.prettierrc) and my prefernces.
