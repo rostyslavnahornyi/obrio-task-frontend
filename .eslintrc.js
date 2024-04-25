@@ -6,6 +6,7 @@ const globalRules = {
   "react/jsx-props-no-spreading": "off",
   "react/no-unescaped-entities": "off",
   "react/require-default-props": "off",
+  "react/function-component-definition": "off",
 
   "import/prefer-default-export": "off",
 
@@ -30,6 +31,7 @@ module.exports = {
     "plugin:unicorn/recommended",
     "next/core-web-vitals",
     "prettier",
+    "next/core-web-vitals",
   ],
   plugins: ["sonarjs"],
   rules: {

@@ -1,0 +1,22 @@
+@import "@/styles/core.scss";
+
+.questionPageWrapper {
+  @include flex(center, center, column);
+  max-width: 330px;
+  row-gap: 30px;
+  margin: 20px 0;
+
+  .descriptionWrapper {
+    @include flex(center, center, column);
+    row-gap: 20px;
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .options {
+    @include flex(center, center, column);
+    row-gap: 20px;
+  }
+}

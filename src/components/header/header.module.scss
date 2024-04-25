@@ -1,0 +1,13 @@
+@import "@/styles/core.scss";
+
+.header {
+  @include flex(space-between);
+
+  max-width: 1024px;
+  width: 100%;
+  padding: 10px 16px;
+
+  svg:first-child {
+    cursor: pointer;
+  }
+}
