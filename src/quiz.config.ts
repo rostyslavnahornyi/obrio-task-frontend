@@ -9,7 +9,6 @@ type QuestionMeta = {
   mode: "light" | "dark";
   title: string;
   description?: string;
-  isLast?: boolean;
   options: Option[];
   steps: {
     prevId?: string;
@@ -277,7 +276,7 @@ const QUIZ: Quiz = [
     id: "15",
     mode: "light",
     title: "Where did you hear about us?",
-    isLast: true,
+
     options: [
       {
         id: "1",

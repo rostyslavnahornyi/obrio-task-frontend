@@ -2,7 +2,7 @@
 
 import { Button, Typography } from "@/components";
 import { Option, QuestionMeta } from "@/quiz.config";
-import { useQuizStore , useAnswersStore } from "@/store";
+import { useQuizStore, useAnswersStore } from "@/store";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import styles from "./_styles/page.module.scss";
@@ -14,15 +14,8 @@ const QuestionPage = () => {
   const { id } = useParams<Params>();
   const router = useRouter();
 
-  const {
-    title,
-    description,
-    options,
-    isLast,
-    steps,
-    setQuestion,
-    changeStep,
-  } = useQuizStore();
+  const { title, description, options, steps, setQuestion, changeStep } =
+    useQuizStore();
 
   useEffect(() => {
     setQuestion(id);
@@ -36,9 +29,7 @@ const QuestionPage = () => {
     if (nextDefinedQuestionId) {
       changeStep(nextDefinedQuestionId, id, answerId);
       router.push(`/${nextDefinedQuestionId}`);
-    }
-
-    if (isLast) {
+    } else {
       alert(JSON.stringify(answers, null, 2));
     }
   };

@@ -18,7 +18,6 @@ const useQuizStore = create<QuizState>()((set) => ({
 
       return {
         ...state,
-        isLast: undefined,
         description: undefined,
         ...question,
       };
@@ -31,7 +30,7 @@ const useQuizStore = create<QuizState>()((set) => ({
         useAnswersStore.getState().addAnswer(currentQuestionId, answerId);
       }
 
-      return { isLast: undefined, description: undefined, ...question };
+      return { description: undefined, ...question };
     }),
 }));
 
