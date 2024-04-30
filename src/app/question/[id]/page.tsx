@@ -1,48 +1,23 @@
 "use client";
 
 import { Button, Header, Typography } from "@/components";
-import { Option, QuestionMeta } from "@/quiz.config";
-import { useAnswersStore, useAppStore, useQuizStore } from "@/store";
 import classNames from "classnames";
-import { useParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
 import styles from "./_styles/page.module.scss";
-import { Params } from "./_types";
+import { usePage } from "./_hooks/page.hook";
 
 const QuestionPage = () => {
-  const { answers } = useAnswersStore();
-  const { mode } = useAppStore();
-
-  const { id } = useParams<Params>();
-  const router = useRouter();
-
-  const { title, description, options, steps, setQuestion, changeStep } =
-    useQuizStore();
-
-  useEffect(() => {
-    setQuestion(id);
-  }, []);
-
-  const selectOption = (
-    nextQuestionId?: QuestionMeta["id"],
-    answerId?: Option["id"]
-  ) => {
-    const nextDefinedQuestionId = nextQuestionId ?? steps?.nextId;
-    if (nextDefinedQuestionId) {
-      changeStep(nextDefinedQuestionId, id, answerId);
-      router.push(`${nextDefinedQuestionId}`);
-    } else {
-      alert(JSON.stringify(answers, null, 2));
-    }
-  };
+  const { mode, title, description, options, isSelected, selectOption } =
+    usePage();
 
   return (
     <main className={classNames(styles.main, styles[`mode-${mode}`])}>
       <Header />
 
       <div className={styles.questionWrapper}>
-        <div className={styles.descriptionWrapper}>
-          <Typography size="l">{title}</Typography>
+        <div>
+          <Typography checkInterpolation size="l">
+            {title}
+          </Typography>
 
           {description && <Typography size="sm">{description}</Typography>}
         </div>
@@ -50,7 +25,10 @@ const QuestionPage = () => {
         <ul className={styles.options}>
           {options?.map(({ id: optionId, title: optionTitle, nextId }) => (
             <li key={optionId}>
-              <Button onClick={() => selectOption(nextId, optionId)}>
+              <Button
+                selected={isSelected(optionId)}
+                onClick={() => selectOption(nextId, optionId)}
+              >
                 {optionTitle}
               </Button>
             </li>

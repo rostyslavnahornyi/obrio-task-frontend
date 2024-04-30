@@ -11,7 +11,7 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   return {
-    title: `OBRIO QUIZ | Question ${id}`,
+    title: `OBRIO Quiz | Question ${id}`,
     description: "Tech test task at OBRIO | Frontend",
   };
 }

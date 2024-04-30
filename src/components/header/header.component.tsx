@@ -24,13 +24,13 @@ const Header: FC = () => {
     }
   };
 
-  /**
-   * TODO: discuss with designers these svgs because
-   * changing "fill" css-prop doesnt help to change color.
-   * Then REFACTOR.
-   */
   return (
     <header className={styles.header}>
+      {/*
+       * TODO: discuss with designers these svgs because
+       * changing "fill" css-prop doesnt help to change color.
+       * Then REFACTOR.
+       */}
       {mode === "dark" ? (
         <>
           <WhiteBackIcon onClick={onBackClickHandler} />

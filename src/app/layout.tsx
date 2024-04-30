@@ -6,7 +6,7 @@ import { Open_Sans } from "next/font/google";
 import "@/styles/reset.css";
 
 export const metadata: Metadata = {
-  title: "Obrio",
+  title: "OBRIO Quiz",
   description: "Tech test task at OBRIO | Frontend",
 };
 

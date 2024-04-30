@@ -26,11 +26,11 @@
     row-gap: 30px;
     margin: 20px 0;
 
-    .descriptionWrapper {
+    & > div {
       @include flex(center, center, column);
       row-gap: 20px;
 
-      p {
+      & > p {
         text-align: center;
       }
     }

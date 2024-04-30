@@ -22,9 +22,9 @@ const useQuizStore = create<QuizState>()((set) => ({
         ...question,
       };
     }),
-  changeStep: (questionId, currentQuestionId, answerId) =>
+  changeStep: (quizQuestionId, currentQuestionId, answerId) =>
     set(() => {
-      const question = QUIZ.find(({ id }) => id === questionId);
+      const question = QUIZ.find(({ id }) => id === quizQuestionId);
 
       if (answerId && currentQuestionId) {
         useAnswersStore.getState().addAnswer(currentQuestionId, answerId);

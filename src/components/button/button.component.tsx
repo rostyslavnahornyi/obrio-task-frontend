@@ -26,7 +26,7 @@ const Button: FC<ButtonProps> = ({
       type="button"
       {...props}
     >
-      <Typography size="sm" mode="light">
+      <Typography size="sm" mode={selected ? "dark" : "light"}>
         {children}
       </Typography>
     </button>

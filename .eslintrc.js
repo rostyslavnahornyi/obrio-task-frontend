@@ -23,6 +23,8 @@ const globalRules = {
   "sonarjs/prefer-single-boolean-return": "error",
   "sonarjs/no-nested-template-literals": "error",
   "sonarjs/no-element-overwrite": "error",
+
+  "import/no-cycle": "off",
 };
 
 module.exports = {
@@ -34,10 +36,7 @@ module.exports = {
     "next/core-web-vitals",
   ],
   plugins: ["sonarjs"],
-  rules: {
-    ...globalRules,
-    "import/prefer-default-export": "off",
-  },
+  rules: globalRules,
   overrides: [
     {
       files: ["./*.js"],

@@ -1,3 +1,5 @@
+import { Answer } from "./store";
+
 type Option = {
   id: string;
   title: string;
@@ -13,6 +15,14 @@ type QuestionMeta = {
     prevId?: string;
     nextId?: string;
   };
+  vars?: {
+    placeholder: string;
+    questionId: Answer["questionId"];
+    matchers: {
+      key: any;
+      value: string;
+    }[];
+  }[];
 };
 
 type Quiz = QuestionMeta[];
@@ -49,7 +59,7 @@ const QUIZ: Quiz = [
   {
     id: "5",
     title:
-      "{gender} {children} need a slightly different approach to improve their relationship. Which statement best describes you?",
+      "{gender}{isSingle} need a slightly different approach to improve their relationship. Which statement best describes you?",
     options: [
       {
         id: "1",
@@ -63,6 +73,24 @@ const QUIZ: Quiz = [
       { id: "", title: "I’m generally happy in my relationship" },
     ],
     steps: { prevId: "3", nextId: "7" },
+    vars: [
+      {
+        placeholder: "{gender}",
+        questionId: "1",
+        matchers: [
+          { key: "1", value: "Female" },
+          { key: "2", value: "Male" },
+        ],
+      },
+      {
+        placeholder: "{isSingle}",
+        questionId: "3",
+        matchers: [
+          { key: "1", value: "" },
+          { key: "2", value: " who have children" },
+        ],
+      },
+    ],
   },
   {
     id: "7",
@@ -156,7 +184,7 @@ const QUIZ: Quiz = [
   {
     id: "6",
     title:
-      "Single {gender} {children} need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?",
+      "Single {gender}{isSingle} need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?",
     options: [
       {
         id: "1",
@@ -177,6 +205,24 @@ const QUIZ: Quiz = [
       },
     ],
     steps: { prevId: "4", nextId: "8" },
+    vars: [
+      {
+        placeholder: "{gender}",
+        questionId: "1",
+        matchers: [
+          { key: "1", value: "Female" },
+          { key: "2", value: "Male" },
+        ],
+      },
+      {
+        placeholder: "{isSingle}",
+        questionId: "4",
+        matchers: [
+          { key: "1", value: " who have children" },
+          { key: "2", value: "" },
+        ],
+      },
+    ],
   },
   {
     id: "8",
@@ -332,4 +378,4 @@ const QUIZ: Quiz = [
 ];
 
 export { QUIZ };
-export type { QuestionMeta, Option };
+export type { Option, QuestionMeta };
