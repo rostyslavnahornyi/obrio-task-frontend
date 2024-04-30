@@ -30,7 +30,7 @@ const QuestionPage = () => {
     const nextDefinedQuestionId = nextQuestionId ?? steps?.nextId;
     if (nextDefinedQuestionId) {
       changeStep(nextDefinedQuestionId, id, answerId);
-      router.push(`/${nextDefinedQuestionId}`);
+      router.push(`${nextDefinedQuestionId}`);
     } else {
       alert(JSON.stringify(answers, null, 2));
     }
