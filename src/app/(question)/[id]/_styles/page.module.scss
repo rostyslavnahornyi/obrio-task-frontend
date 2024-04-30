@@ -1,22 +1,43 @@
 @import "@/styles/core.scss";
 
-.questionPageWrapper {
-  @include flex(center, center, column);
-  max-width: 330px;
-  row-gap: 30px;
-  margin: 20px 0;
+.main {
+  @include flex(flex-start, center, column);
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
 
-  .descriptionWrapper {
-    @include flex(center, center, column);
-    row-gap: 20px;
-
-    p {
-      text-align: center;
-    }
+  &.mode-light {
+    background-color: #fff0f0;
   }
 
-  .options {
+  &.mode-dark {
+    background: linear-gradient(
+      113.44deg,
+      rgb(20, 19, 51) -66.163%,
+      rgb(32, 34, 97) 16.037%,
+      rgb(84, 60, 151) 82.662%,
+      rgb(105, 57, 162) 114.552%
+    );
+  }
+
+  .questionWrapper {
     @include flex(center, center, column);
-    row-gap: 20px;
+    max-width: 330px;
+    row-gap: 30px;
+    margin: 20px 0;
+
+    .descriptionWrapper {
+      @include flex(center, center, column);
+      row-gap: 20px;
+
+      p {
+        text-align: center;
+      }
+    }
+
+    .options {
+      @include flex(center, center, column);
+      row-gap: 20px;
+    }
   }
 }

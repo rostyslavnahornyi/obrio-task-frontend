@@ -1,11 +1,11 @@
 "use client";
 
+import { useAppStore } from "@/store";
 import classNames from "classnames";
 import { FC } from "react";
-import { useQuizStore } from "@/store";
+import { Typography } from "../typography";
 import styles from "./button.module.scss";
 import { ButtonProps } from "./button.types";
-import { Typography } from "../typography";
 
 const Button: FC<ButtonProps> = ({
   selected = false,
@@ -13,7 +13,7 @@ const Button: FC<ButtonProps> = ({
   children,
   ...props
 }) => {
-  const { mode } = useQuizStore();
+  const { mode } = useAppStore();
 
   return (
     <button

@@ -1,8 +1,8 @@
 "use client";
 
+import { useAppStore } from "@/store";
 import classNames from "classnames";
 import { FC } from "react";
-import { useQuizStore } from "@/store";
 import styles from "./typography.module.scss";
 import { TypographyProps } from "./typography.types";
 
@@ -12,7 +12,7 @@ const Typography: FC<TypographyProps> = ({
   className,
   children,
 }) => {
-  const { mode } = useQuizStore();
+  const { mode } = useAppStore();
 
   return (
     <p

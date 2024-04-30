@@ -4,15 +4,17 @@ import { ReactComponent as BlackBackIcon } from "@/assets/icons/left-chevron-bla
 import { ReactComponent as WhiteBackIcon } from "@/assets/icons/left-chevron-white.svg";
 import { ReactComponent as BlackLogoIcon } from "@/assets/icons/logo-black.svg";
 import { ReactComponent as WhiteLogoIcon } from "@/assets/icons/logo-white.svg";
+import { ReactComponent as ModeIcon } from "@/assets/icons/mode.svg";
 
-import { useQuizStore } from "@/store";
+import { useAppStore, useQuizStore } from "@/store";
 import { FC } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./header.module.scss";
 
-
 const Header: FC = () => {
-  const { steps, mode, changeStep } = useQuizStore();
+  const { steps, changeStep } = useQuizStore();
+  const { mode, toggleMode } = useAppStore();
+
   const router = useRouter();
 
   const onBackClickHandler = () => {
@@ -40,7 +42,8 @@ const Header: FC = () => {
           <BlackLogoIcon />
         </>
       )}
-      <span />
+
+      <ModeIcon className={styles[`mode-${mode}`]} onClick={toggleMode} />
     </header>
   );
 };

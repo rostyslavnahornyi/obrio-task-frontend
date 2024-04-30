@@ -3,10 +3,10 @@
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
 
-function Root() {
+function RootPage() {
   useEffect(() => redirect("/1"), []);
 
-  
+  return <body />;
 }
 
-export default Root;
+export default RootPage;

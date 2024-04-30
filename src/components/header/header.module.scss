@@ -10,4 +10,18 @@
   svg:first-child {
     cursor: pointer;
   }
+
+  svg:nth-child(3) {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    &.mode-light {
+      @include fill(#000000);
+    }
+
+    &.mode-dark {
+      @include fill(#ffffff);
+    }
+  }
 }

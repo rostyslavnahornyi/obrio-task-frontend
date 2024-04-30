@@ -1,2 +1,3 @@
 export { useQuizStore } from "./quiz.store";
 export { useAnswersStore } from "./answers.store";
+export { useAppStore } from "./app.store";

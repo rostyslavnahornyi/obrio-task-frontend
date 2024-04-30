@@ -6,7 +6,6 @@ type Option = {
 
 type QuestionMeta = {
   id: string;
-  mode: "light" | "dark";
   title: string;
   description?: string;
   options: Option[];
@@ -21,7 +20,6 @@ type Quiz = QuestionMeta[];
 const QUIZ: Quiz = [
   {
     id: "1",
-    mode: "light",
     title: "Select your gender:",
     options: [
       { id: "1", title: "Female " },
@@ -31,7 +29,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "2",
-    mode: "light",
     title:
       "So we can get to know you better, tell us about your relationship status.",
     options: [
@@ -42,7 +39,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "3",
-    mode: "light",
     title: "Are you a single parent?",
     options: [
       { id: "1", title: "Yes" },
@@ -52,7 +48,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "5",
-    mode: "light",
     title:
       "{gender} {children} need a slightly different approach to improve their relationship. Which statement best describes you?",
     options: [
@@ -71,7 +66,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "7",
-    mode: "light",
     title: "Do you tend to overthink?",
     options: [
       {
@@ -87,7 +81,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "9",
-    mode: "dark",
     title: "So how does it work?",
     description:
       "We analyze hundreds of data points to create your unique astrological blueprint. This is combined with AI to tailor-make your astrological insights, based on your answers. We’re going to change your relationship with astrology.",
@@ -101,7 +94,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "11",
-    mode: "light",
     title: "What is most important to you?",
     options: [
       {
@@ -125,7 +117,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "12",
-    mode: "light",
     title: "Is emotional control tricky for you?",
     options: [
       {
@@ -149,7 +140,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "4",
-    mode: "light",
     title: "Are you a parent?",
     options: [
       {
@@ -165,7 +155,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "6",
-    mode: "light",
     title:
       "Single {gender} {children} need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?",
     options: [
@@ -191,7 +180,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "8",
-    mode: "light",
     title: "Is your partner an introvert or extrovert?",
     options: [
       {
@@ -211,7 +199,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "10",
-    mode: "light",
     title: "What is your partner’s gender?",
     options: [
       {
@@ -231,7 +218,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "13",
-    mode: "light",
     title: "Do you agree with the statement below?",
     description: "My partner and I make sex a priority in our relationship",
     options: [
@@ -254,7 +240,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "14",
-    mode: "light",
     title: "When you think about your relationship goals, you feel...?",
     options: [
       {
@@ -274,7 +259,6 @@ const QUIZ: Quiz = [
   },
   {
     id: "15",
-    mode: "light",
     title: "Where did you hear about us?",
 
     options: [

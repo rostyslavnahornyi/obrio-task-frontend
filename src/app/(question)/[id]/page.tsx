@@ -1,8 +1,9 @@
 "use client";
 
-import { Button, Typography } from "@/components";
+import { Button, Header, Typography } from "@/components";
 import { Option, QuestionMeta } from "@/quiz.config";
-import { useQuizStore, useAnswersStore } from "@/store";
+import { useAnswersStore, useAppStore, useQuizStore } from "@/store";
+import classNames from "classnames";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import styles from "./_styles/page.module.scss";
@@ -10,6 +11,7 @@ import { Params } from "./_types";
 
 const QuestionPage = () => {
   const { answers } = useAnswersStore();
+  const { mode } = useAppStore();
 
   const { id } = useParams<Params>();
   const router = useRouter();
@@ -35,23 +37,27 @@ const QuestionPage = () => {
   };
 
   return (
-    <div className={styles.questionPageWrapper}>
-      <div className={styles.descriptionWrapper}>
-        <Typography size="l">{title}</Typography>
+    <main className={classNames(styles.main, styles[`mode-${mode}`])}>
+      <Header />
 
-        {description && <Typography size="sm">{description}</Typography>}
+      <div className={styles.questionWrapper}>
+        <div className={styles.descriptionWrapper}>
+          <Typography size="l">{title}</Typography>
+
+          {description && <Typography size="sm">{description}</Typography>}
+        </div>
+
+        <ul className={styles.options}>
+          {options?.map(({ id: optionId, title: optionTitle, nextId }) => (
+            <li key={optionId}>
+              <Button onClick={() => selectOption(nextId, optionId)}>
+                {optionTitle}
+              </Button>
+            </li>
+          ))}
+        </ul>
       </div>
-
-      <ul className={styles.options}>
-        {options?.map(({ id: optionId, title: optionTitle, nextId }) => (
-          <li key={optionId}>
-            <Button onClick={() => selectOption(nextId, optionId)}>
-              {optionTitle}
-            </Button>
-          </li>
-        ))}
-      </ul>
-    </div>
+    </main>
   );
 };
 

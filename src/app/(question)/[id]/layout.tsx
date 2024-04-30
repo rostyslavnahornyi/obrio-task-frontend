@@ -1,9 +1,20 @@
-import { Header } from "@/components";
+import { ReactNode } from "react";
+
+import type { Metadata } from "next";
+
 import { QUIZ } from "@/quiz.config";
-import { ReactNode, useMemo } from "react";
-import classNames from "classnames";
-import styles from "./_styles/layout.module.scss";
 import { Params } from "./_types";
+
+export async function generateMetadata({
+  params: { id },
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  return {
+    title: `OBRIO QUIZ | Question ${id}`,
+    description: "Tech test task at OBRIO | Frontend",
+  };
+}
 
 export const dynamicParams = false;
 
@@ -11,24 +22,6 @@ export function generateStaticParams() {
   return QUIZ.map(({ id }) => ({ id }));
 }
 
-const QuestionPage = ({
-  children,
-  params,
-}: {
-  params: Params;
-  children: ReactNode;
-}) => {
-  const mode = useMemo(
-    () => QUIZ.find(({ id }) => id === params.id)?.mode,
-    [params.id]
-  );
+const QuestionPageLayout = ({ children }: { children: ReactNode }) => children;
 
-  return (
-    <main className={classNames(styles.questionLayout, styles[`mode-${mode}`])}>
-      <Header />
-      {children}
-    </main>
-  );
-};
-
-export default QuestionPage;
+export default QuestionPageLayout;
